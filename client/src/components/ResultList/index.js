@@ -1,16 +1,62 @@
 import React from "react";
-import "./style.css";
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+// import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
 
-// This file exports both the List and ListItem components
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+  media: {
+    height: 140,
+  },
+});
 
-export function List({ children }) {
-  return (
-    <div className="list-overflow-container">
-      <ul className="list-group">{children}</ul>
-    </div>
-  );
+function MediaCard() {
+  const classes = useStyles();
+
+    return (
+      <Box border={1} borderColor="primary.main">
+        <Card className={classes.root}>
+          {/* <CardActionArea> */}
+          <CardMedia className={classes.media} image="" title="" />
+          <CardContent>
+            <Typography
+              gutterBottom
+              color="secondary"
+              variant="h5"
+              component="h2"
+            >
+              Lizard
+            </Typography>
+            <Typography variant="body2" color="secondary.main" component="p">
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+          {/* </CardActionArea> */}
+          <CardActions border={1} borderColor="secondary">
+            <Button size="small" color="secondary">
+              Share
+            </Button>
+            <Button
+              size="small"
+              color="secondary"
+              border={0}
+              borderColor="secondary"
+            >
+              Learn More
+            </Button>
+          </CardActions>
+        </Card>
+      </Box>
+    );
 }
 
-export function ListItem({ children }) {
-  return <li className="list-group-item">{children}</li>;
-}
+export default MediaCard;

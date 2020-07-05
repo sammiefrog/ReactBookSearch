@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(3),
       width: "35ch",
     },
 
