@@ -26,7 +26,7 @@ function App() {
           <AppBar color="primary"/>
           <Switch>
             <Route exact path={["/", "/search"]}>
-              <Search />
+              <Search/>
             </Route>
             <Route exact path="/saved">
               <Saved />
