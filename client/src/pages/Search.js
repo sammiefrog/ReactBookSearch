@@ -81,7 +81,7 @@ function Search() {
                         authors={book.volumeInfo.authors}
                         description={book.volumeInfo.description}
                         link={book.volumeInfo.infoLink}
-                        saveBook={() => { saveBook() }}
+                        action={() => { saveBook() }}
                         btnContent={"Save Book"}
                     />
                 ))}

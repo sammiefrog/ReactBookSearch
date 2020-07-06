@@ -40,7 +40,7 @@ function MediaCard(props) {
                     <Button color="secondary" href={props.link}>
                         View Book
                     </Button>
-                    <Button color="secondary" onChange={props.saveBook}>
+                    <Button color="secondary" href={props.action}>
                         {props.btnContent}
                     </Button>
                 </CardActions>
