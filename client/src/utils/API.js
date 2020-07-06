@@ -2,12 +2,12 @@ import axios from 'axios';
 
 // const BASEURL =
 //   "https://www.googleapis.com/books/v1/volumes?q=intitle:" +  "&key=";
-let query = 'harry+potter';
+// let query = 'harry+potter';
 
 export default {
     // Gets all books
-    search: function () {
-        return axios.get('https://www.googleapis.com/books/v1/volumes?q=' + query);
+    search: function (query) {
+        return axios.get('/api/google/' + query);
     },
     // Gets the book with the given id
     getBook: function (id) {

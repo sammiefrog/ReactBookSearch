@@ -7,6 +7,6 @@ module.exports = {
         const title = req.params.title;
         axios.get('https://www.googleapis.com/books/v1/volumes?q=' + title).then(results => {
             res.json(results.data.items);
-        });
+        }).catch(err => res.json(err));
     }
 };

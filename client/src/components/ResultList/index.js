@@ -18,30 +18,30 @@ const useStyles = makeStyles({
     }
 });
 
-function MediaCard() {
+function MediaCard(props) {
     const classes = useStyles();
 
     return (
         <Box border={1} borderColor="primary.main">
             <Card className={classes.root}>
                 {/* <CardActionArea> */}
-                <CardMedia className={classes.media} image="" title="" />
+                <CardMedia className={classes.media} image={props.image} title={props.title} />
                 <CardContent>
                     <Typography gutterBottom color="secondary" variant="h5" component="h2">
-                        Lizard
+                        {props.title}
+                        {props.authors}
                     </Typography>
-                    <Typography variant="body2" color="secondary.main" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                    <Typography variant="body2" component="p">
+                        {props.description}
                     </Typography>
                 </CardContent>
                 {/* </CardActionArea> */}
-                <CardActions border={1} borderColor="secondary">
-                    <Button size="small" color="secondary">
-                        Share
+                <CardActions>
+                    <Button color="secondary" href={props.link}>
+                        View Book
                     </Button>
-                    <Button size="small" color="secondary" border={0} borderColor="secondary">
-                        Learn More
+                    <Button color="secondary" onChange={props.saveBook}>
+                        {props.btnContent}
                     </Button>
                 </CardActions>
             </Card>

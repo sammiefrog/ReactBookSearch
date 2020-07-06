@@ -12,13 +12,13 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
     const classes = useStyles();
 
     return (
         <Box display="flex" alignItems="center" justifyContent="center">
             <form className={classes.root} noValidate autoComplete="off">
-                <TextField id="outlined-basic" label="Search Books" variant="outlined" />
+                <TextField id="outlined-basic" label="Search Books" variant="outlined" onChange={props.handleInputChange} value={props.searchTerm}/>
             </form>
         </Box>
     );

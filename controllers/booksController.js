@@ -2,13 +2,6 @@ const db = require('../models');
 
 // Defining methods for the booksController
 module.exports = {
-    //   searchByTitle: function (req, res) {
-    //     const title = req.params.title
-    //     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + title).then(results => {
-    //       res.json(results.data.items)
-    //     })
-
-    //   },
     findAll: function (req, res) {
         db.Book.find(req.query)
             .sort({ date: -1 })
