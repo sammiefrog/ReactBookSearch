@@ -8,8 +8,7 @@ import GridList from '@material-ui/core/GridList';
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-
-
+import axios from 'axios';
 
 const useStyles = makeStyles(theme => ({
     box: {
@@ -30,9 +29,7 @@ function Search() {
     const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
-
-    function searchBooks() {
-        console.log(searchTerm)
+    const searchBooks = () => {
         API.search(searchTerm)
             .then(response => {
                 console.log(response.data);
@@ -42,22 +39,20 @@ function Search() {
     }
 
     const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        console.log(value)
+        const { value } = event.target;
         setSearchTerm(value);
     }
 
-    const saveBook = (book) => {
-        console.log("clicked")
-            // if (formObject.title && formObject.author) {
+    const saveBook = (bookData) => {
+        console.log(bookData)
         API.saveBook({
-            title: book.title,
-            authors: book.authors,
-            description: book.description,
-            image: book.image,
-            link: book.link
+            title: bookData.volumeInfo.title,
+            authors: bookData.volumeInfo.authors,
+            description: bookData.volumeInfo.description,
+            image: bookData.volumeInfo.imageLinks.thumbnail,
+            link: bookData.volumeInfo.infoLink
         })
-            .then(res => console.log('saved'))
+            .then(res => console.log(res))
             .catch(err => console.log(err));
     }
     
