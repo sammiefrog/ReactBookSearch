@@ -61,7 +61,7 @@ function Saved() {
                         description={book.description}
                         link={book.link}
                         action={() => {
-                            deleteBook();
+                            deleteBook(book._id);
                         }}
                         btnContent={'Delete Book'}
                     />

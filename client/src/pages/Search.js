@@ -47,18 +47,17 @@ function Search() {
         setSearchTerm(value);
     }
 
-    function saveBook(book) {
-            // event.preventDefault();
+    const saveBook = (book) => {
         console.log("clicked")
             // if (formObject.title && formObject.author) {
         API.saveBook({
-            title: book.volumeInfo.title,
-            authors: book.volumeInfo.authors,
-            description: book.volumeInfo.description,
-            image: book.volumeInfo.imageLinks.thumbnail,
-            link: book.volumeInfo.infoLink,
+            title: book.title,
+            authors: book.authors,
+            description: book.description,
+            image: book.image,
+            link: book.link
         })
-            .then(res => setBooks(books))
+            .then(res => console.log('saved'))
             .catch(err => console.log(err));
     }
     
@@ -82,7 +81,7 @@ function Search() {
                         description={book.volumeInfo.description}
                         link={book.volumeInfo.infoLink}
                         action={() => {
-                            saveBook();
+                            saveBook(book);
                         }}
                         btnContent={'Save Book'}
                     />
