@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import Textfield from '../components/Textfield';
 import API from '../utils/API';
@@ -6,15 +6,16 @@ import { makeStyles } from '@material-ui/core/styles';
 import MediaCard from '../components/ResultList';
 import GridList from '@material-ui/core/GridList';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import Box from '@material-ui/core/Box';
+
 
 
 const useStyles = makeStyles(theme => ({
-    root: {
+    box: {
         display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     gridList: {
         width: '100%',
@@ -29,9 +30,6 @@ function Search() {
     const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
 
-    // useEffect(() => {
-    //     searchBooks();
-    // }, []);
 
     function searchBooks() {
         console.log(searchTerm)
@@ -66,12 +64,14 @@ function Search() {
     
 
     return (
-        <div className="container justify-content-center">
+        <Container>
             <Header />
             <Textfield handleInputChange={handleInputChange} name="title" searchTerm={searchTerm} />
-            <Button variant="contained" color="secondary" onClick={searchBooks}>
-                Search
-            </Button>
+            <Box className={classes.box}>
+                <Button variant="contained" color="secondary" onClick={searchBooks}>
+                    Search
+                </Button>
+            </Box>
             <GridList className={classes.gridList} cols={3}>
                 {books.map((book, i) => (
                     <MediaCard
@@ -81,13 +81,15 @@ function Search() {
                         authors={book.volumeInfo.authors}
                         description={book.volumeInfo.description}
                         link={book.volumeInfo.infoLink}
-                        action={() => { saveBook() }}
-                        btnContent={"Save Book"}
+                        action={() => {
+                            saveBook();
+                        }}
+                        btnContent={'Save Book'}
                     />
                 ))}
                 {/* mapping results here */}
             </GridList>
-        </div>
+        </Container>
     );
 }
 

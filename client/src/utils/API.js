@@ -9,6 +9,9 @@ export default {
     search: function (query) {
         return axios.get('/api/google/' + query);
     },
+    getBooks: function () {
+        return axios.get('/api/books')
+    },
     // Gets the book with the given id
     getBook: function (id) {
         return axios.get('/api/books/' + id);
