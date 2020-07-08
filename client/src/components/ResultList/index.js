@@ -16,9 +16,10 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     root: {
         maxWidth: 345,
+        height: 600,
     },
     media: {
         height: 400
@@ -26,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
     heading: {
         fontSize: theme.typography.pxToRem(15),
         fontWeight: theme.typography.fontWeightRegular
+    },
+    actions: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'end'
     }
 }));
 
@@ -37,16 +44,13 @@ function MediaCard(props) {
             <Card className={classes.root}>
                 {/* <CardActionArea> */}
                 <CardMedia className={classes.media} image={props.image} title={props.title} />
-                <CardContent>
+                <CardContent alignSelf='end'>
                     <Typography gutterBottom color="secondary" variant="subtitle1" component="h2">
                         {props.title}
                     </Typography>
                     <Typography gutterBottom color="primary" variant="subtitle2" component="h5">
                         {props.authors}
                     </Typography>
-                    {/* <Typography variant="body2" component="p">
-                        {props.description}
-                    </Typography> */}
                     <Accordion>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
@@ -61,8 +65,7 @@ function MediaCard(props) {
                         </AccordionDetails>
                     </Accordion>
                 </CardContent>
-                {/* </CardActionArea> */}
-                <CardActions>
+                <CardActions className={classes.actions}>
                     <Link component="button" color="secondary" target="_blank" href={props.link}>
                         View Book
                     </Link>
