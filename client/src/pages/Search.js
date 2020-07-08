@@ -89,7 +89,7 @@ function Search() {
                 </GridList>
             ) : (
                 <Typography color="primary" variant="h3" className={classes.box}>
-                    Search a Book Title to Begin!
+                    {message}
                 </Typography>
             )}
         </Container>
