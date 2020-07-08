@@ -34,9 +34,8 @@ export default function Header() {
                     component="h1">
                     Google Books
                 </Typography>
-
                 <Typography color="primary" variant="subtitle1">
-                    Search books and save them for later.
+                    Save your favorites for later.
                 </Typography>
             </Container>
         </Box>

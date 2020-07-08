@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import API from '../utils/API';
-import MediaCard from '../components/ResultList';
+import MediaCard from '../components/MediaCard';
 
 
 const useStyles = makeStyles({
