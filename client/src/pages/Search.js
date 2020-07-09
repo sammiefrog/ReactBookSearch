@@ -50,9 +50,13 @@ function Search() {
     const saveBook = (bookData) => {
         API.saveBook({
             title: bookData.volumeInfo.title,
-            authors: bookData.volumeInfo.authors,
-            description: bookData.volumeInfo.description,
-            image: bookData.volumeInfo.imageLinks.thumbnail,
+            authors: bookData.volumeInfo.authors ? bookData.volumeInfo.authors : 'No authors found',
+            description: bookData.volumeInfo.description
+                ? bookData.volumeInfo.description
+                : 'No synopsis found',
+            image: bookData.volumeInfo.imageLinks
+                ? bookData.volumeInfo.imageLinks.thumbnail
+                : 'https://via.placeholder.com/150.png?text=No+Image+Found',
             link: bookData.volumeInfo.infoLink
         })
             .then(res => console.log(res))
@@ -75,10 +79,18 @@ function Search() {
                     {books.map((book, i) => (
                         <MediaCard
                             key={i}
-                            image={book.volumeInfo.imageLinks.thumbnail}
+                            image={
+                                book.volumeInfo.imageLinks
+                                    ? book.volumeInfo.imageLinks.thumbnail
+                                    : 'https://via.placeholder.com/150.png?text=No+Image+Found'
+                            }
                             title={book.volumeInfo.title}
                             authors={book.volumeInfo.authors.join(', ')}
-                            description={book.volumeInfo.description}
+                            description={
+                                book.volumeInfo.description
+                                    ? book.volumeInfo.description
+                                    : 'No synopsis found'
+                            }
                             link={book.volumeInfo.infoLink}
                             action={() => {
                                 saveBook(book);

@@ -18,6 +18,12 @@ if (process.env.NODE_ENV === 'production') {
 // Define API routes here
 app.use(routes);
 
+// Send every other request to the React app
+// Define any API routes before this runs
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/build/index.html'));
+});
+
 // Connect to the Mongo DB
 mongoose
     .connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
@@ -27,11 +33,6 @@ mongoose
     .then(console.log('Database is connected'))
     .catch(err => console.log(err));
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
-});
 
 app.listen(PORT, () => {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
