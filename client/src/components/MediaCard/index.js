@@ -66,7 +66,7 @@ function MediaCard(props) {
                     </Accordion>
                 </CardContent>
                 <CardActions className={classes.actions}>
-                    <Link color="secondary" target="_blank" href={props.link}>
+                    <Link color="secondary.main" target="_blank" href={props.link}>
                         View Book
                     </Link>
                     <Link component="button" color="secondary" onClick={props.action}>

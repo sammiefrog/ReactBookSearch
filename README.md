@@ -25,6 +25,10 @@ Node.Js, Express, JavaScript, React, GIT, GitHub, MongoDB, APIs, Heroku
 To search books and save ones that are of interest for later.
 
 <h2 id= "screenshots">Screenshots</h2>
+<img src='./client/public/images/capt1.png' alt='screenshot of working app'>
+<img src='./client/public/images/capt2.png' alt='screenshot of working app'>
+<img src='./client/public/images/capt3.png' alt='screenshot of working app'>
+
   
 <h2 id= "contact">Contact</h2>
 <li>Name: Sammantha Sasenick</li> 
@@ -34,4 +38,4 @@ To search books and save ones that are of interest for later.
 <li>LinkedIn: www.linkedin.com/in/sammantha-sasenick412</li> 
     
 <h2 id= "tests">Tests</h2>
- 
+ <img src='./client/public/images/booksearch.gif' alt='gif of working app'>
