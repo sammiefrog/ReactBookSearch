@@ -6,7 +6,7 @@ import GridList from '@material-ui/core/GridList';
 import API from '../utils/API';
 import MediaCard from '../components/MediaCard';
 
-
+import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     root: {
         maxWidth: '100%',
